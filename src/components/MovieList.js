@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Genre from './Genre';
 
 const MovieListBlock = styled.div`
     width: 1080px;
@@ -8,29 +9,37 @@ const MovieListBlock = styled.div`
 
 const MovieItemBlock = styled.div`
     border: 1px solid gray;
+
+    span{
+        margin-right: 8px;
+    }
 `;
 
 const MovieItem = ({ movie }) => {
     const {
-        id,
+        //id,
         title,
         overview,
         release_date,
         vote_average,
         genre_ids, // 장르는 배열 형태
-        backdrop_path,
+        // backdrop_path,
+        poster_path,
     } = movie;
-    console.log(id);
-    console.log(title);
-    console.log(overview);
-    console.log(release_date);
-    console.log(vote_average);
-    genre_ids.map(g => console.log(g)); // 장르 
-    console.log(backdrop_path);
+    // genre_ids.map(g => console.log(g)); // 장르 
+
+    const poster_url = `https://image.tmdb.org/t/p/w342/${poster_path}`
 
     return (
         <MovieItemBlock>
-            <h3>{movie.title}</h3>
+            <h3>{title}</h3>
+            <img src={poster_url} alt={title} title={title}/>
+            <p>{overview}</p>
+            <p>{release_date}</p>
+            <p>{vote_average}</p>
+            {genre_ids.map(genre => (
+                <Genre key={genre} genre={genre}/>
+            ))}
         </MovieItemBlock>
     );
 };
