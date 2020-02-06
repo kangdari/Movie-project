@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import MovieContainer from '../containers/MovieContainer';
 
 const Home = () => {
-    return (
-        <div>
-            hello
-        </div>
-    );
+    return <MovieContainer />;
 };
 
 export default Home;
