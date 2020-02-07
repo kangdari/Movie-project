@@ -8,3 +8,9 @@ export const getMovies = async () =>{
     let res = await axios.get(`${url}`);
     return res;
 }
+
+export const getMovie_Detail = async () =>{
+    let res = await axios.get();
+    return res;
+}
+

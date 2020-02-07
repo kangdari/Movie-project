@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Genre from './Genre';
+import { Link } from 'react-router-dom';
 
 const MovieListBlock = styled.div`
     width: 1080px;
@@ -17,7 +18,7 @@ const MovieItemBlock = styled.div`
 
 const MovieItem = ({ movie }) => {
     const {
-        //id,
+        id,
         title,
         overview,
         release_date,
@@ -32,14 +33,30 @@ const MovieItem = ({ movie }) => {
 
     return (
         <MovieItemBlock>
-            <h3>{title}</h3>
-            <img src={poster_url} alt={title} title={title} />
-            <p>{overview}</p>
-            <p>{release_date}</p>
-            <p>{vote_average}</p>
-            {genre_ids.map(genre => (
-                <Genre key={genre} genre={genre} />
-            ))}
+            {/* 영화 선택 시 props 전달 */}
+            <Link
+                to={{
+                    pathname: `/movie/${id}`,
+                    state: {
+                        id,
+                        title,
+                        overview,
+                        release_date,
+                        vote_average,
+                        genre_ids,
+                        poster_url,
+                    },
+                }}
+            >
+                <h3>{title}</h3>
+                <img src={poster_url} alt={title} title={title} />
+                <p>{overview}</p>
+                <p>{release_date}</p>
+                <p>{vote_average}</p>
+                {genre_ids.map(genre => (
+                    <Genre key={genre} genre={genre} />
+                ))}
+            </Link>
         </MovieItemBlock>
     );
 };
