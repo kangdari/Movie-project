@@ -10,7 +10,7 @@ const MovieListBlock = styled.div`
 const MovieItemBlock = styled.div`
     border: 1px solid gray;
 
-    span{
+    span {
         margin-right: 8px;
     }
 `;
@@ -26,29 +26,36 @@ const MovieItem = ({ movie }) => {
         // backdrop_path,
         poster_path,
     } = movie;
-    // genre_ids.map(g => console.log(g)); // 장르 
+    // genre_ids.map(g => console.log(g)); // 장르
 
-    const poster_url = `https://image.tmdb.org/t/p/w342/${poster_path}`
+    const poster_url = `https://image.tmdb.org/t/p/w342/${poster_path}`;
 
     return (
         <MovieItemBlock>
             <h3>{title}</h3>
-            <img src={poster_url} alt={title} title={title}/>
+            <img src={poster_url} alt={title} title={title} />
             <p>{overview}</p>
             <p>{release_date}</p>
             <p>{vote_average}</p>
             {genre_ids.map(genre => (
-                <Genre key={genre} genre={genre}/>
+                <Genre key={genre} genre={genre} />
             ))}
         </MovieItemBlock>
     );
 };
 
 // 전체 영화 목록
-const MovieList = ({ movies }) => {
+const MovieList = ({ movies, error, loading }) => {
+    if (error) {
+        return <MovieListBlock>오류 발생</MovieListBlock>;
+    }
+
     return (
         <MovieListBlock>
-            {movies &&
+            {loading && '로딩중....'}
+            {/* 로딩중이 아니고 movies 배열이 존재할 때 렌더링 */}
+            {!loading &&
+                movies &&
                 movies.map(movie => <MovieItem movie={movie} key={movie.id} />)}
         </MovieListBlock>
     );
