@@ -9,8 +9,9 @@ export const getMovies = async () =>{
     return res;
 }
 
-export const getMovie_Detail = async () =>{
-    let res = await axios.get();
+// 영화 title로 검색 API
+export const searchMovies = async (title) =>{
+    let res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${title}&language=ko`);
     return res;
 }
 
