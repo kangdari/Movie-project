@@ -1,34 +1,74 @@
 import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
+import Genre from '../Genre';
+import { Link } from 'react-router-dom';
 
-// 검색 결과 영화 1개
-const Movie = ({ info }) => {
+const MovieItemBlock = styled.div`
+
+    display: flex;
+    
+    border : 1px solid gray;
+    border-radius: 4px;
+    margin-bottom : 2rem;
+
+    span {
+        margin-right: 8px;
+    }
+`;
+
+const MovieItem = ({ movie }) => {
     const {
-        // id,
+        id,
         title,
+        overview,
         release_date,
-        // genre_ids,
-        // overview,
-        // poster_path,
-        // backdrop_path,
         vote_average,
-    } = info;
+        genre_ids, // 장르는 배열 형태
+        // backdrop_path,
+        poster_path,
+    } = movie;
+    // genre_ids.map(g => console.log(g)); // 장르
+
+    const poster_url = `https://image.tmdb.org/t/p/w342/${poster_path}`;
+
     return (
-        <>
-            <h3>{title}</h3>
-            <p>{release_date}</p>
-            <p>{vote_average}</p>
-        </>
+        <MovieItemBlock>
+            {/* 영화 선택 시 props 전달 */}
+            <Link
+                to={{
+                    pathname: `/movie/${id}`,
+                    state: {
+                        id,
+                        title,
+                        overview,
+                        release_date,
+                        vote_average,
+                        genre_ids,
+                        poster_url,
+                    },
+                }}
+            >
+                <h3>{title}</h3>
+                <img src={poster_url} alt={title} title={title} />
+                <p>{release_date}</p>
+                <p>{vote_average}</p>
+                {genre_ids.map(genre => (
+                    <Genre key={genre} genre={genre} />
+                ))}
+            </Link>
+        </MovieItemBlock>
     );
 };
 
-// 인풋 창에 입력할 때마다 SearchResult 컴포넌트가 렌더링 됨.
-const SearchResult = ({ result }) => {
+// 영화 검색 결과 목록을 보여줌
+const SearchResult = ({ data }) => {
     return (
         <div>
-            {result.map((info, index) => {
-                return <Movie key={index} info={info} />;
-            })}
+            {data &&
+                data.map(
+                    movie => <MovieItem key={movie.id} movie={movie} />,
+                    // return <p key={movie.id}>{movie.title}</p>;
+                )}
         </div>
     );
 };

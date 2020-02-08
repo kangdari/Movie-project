@@ -1,43 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import * as movieAPI from '../../lib/movieAPI';
-import SearchResult from './SearchResult';
 
-const SearchFormBlock = styled.div``;
+const SearchFormBlock = styled.div`
+    
+    margin-bottom : 2rem;
+`;
 
-const SearchForm = () => {
-    const [result, setResult] = useState();
-    const [input, setInput] = useState('');
-
-    // const whiteSpace = (input) =>{
-    //     const text = input.replace(/\s/gi, ''); // 문자열 내 공백 제거
-    //     // \s 는 정규식에서 공백을 뜻 함
-    //     return text;
-    // }
-
-    const onSubmit = async e => {
-        e.preventDefault();
-        // const white_text = whiteSpace(input); // 공백 제거 
-        const res = await movieAPI.searchMovies(input);
-        setResult(res.data.results);
-        setInput('');
-    };
-
-    const onChange = async e => {
-        setInput(e.target.value);
-
-        // 입력과 동시에 검색
-        // const res = await movieAPI.searchMovies(input);
-        // setResult(res.data.results);
-    }
-
+const SearchForm = ({ data, error, onChange, input, onSubmit }) => {
     return (
         <SearchFormBlock>
             <form onSubmit={onSubmit}>
-                <input onChange={onChange} value={input} />
-                <button type="submit">검색</button>
+                <span>
+                    <input value={input} onChange={onChange} />
+                    {/* 검색어 미리 보기 기능 */}
+                    {/* { && input && data && <div>{data.map(movie=> {
+                        return <p>{movie.title}</p>
+                    })}</div>} */}
+                </span>
             </form>
-            <div>{!result ? 'null' : <SearchResult result={result}/>}</div>
         </SearchFormBlock>
     );
 };
