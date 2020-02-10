@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SearchFormBlock = styled.div`
+    display: flex;
+    align-items; flex-end;
     
     margin-bottom : 2rem;
 `;

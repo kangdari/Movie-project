@@ -2,15 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SearchTemplateBlock = styled.div`
-    width: 1080px;
-    margin: 0 auto;
+`;
+
+const Container = styled.div`
 `;
 
 
 const SearchTemplate = ({children}) => {
     return (
         <SearchTemplateBlock>
-            {children}
+            <Container>
+                {children}
+            </Container>
         </SearchTemplateBlock>
     );
 };

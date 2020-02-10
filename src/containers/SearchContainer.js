@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { searchMovies } from '../module/search';
 import SearchForm from '../components/search/SearchForm';
 import SearchResult from '../components/search/SearchResult';
+import SearchTemplate from '../components/search/SearchTemplate';
+
 
 const SearchContainer = () => {
     const [input, setInput] = useState('');
@@ -25,7 +27,7 @@ const SearchContainer = () => {
     };
 
     return (
-        <div>
+        <SearchTemplate>
             <SearchForm
                 data={data}
                 error={error}
@@ -34,7 +36,7 @@ const SearchContainer = () => {
                 onSubmit={onSubmit}
             />
             <SearchResult data={data}/>
-        </div>
+        </SearchTemplate>
     );
     /* 결과 폼 */
 };

@@ -5,15 +5,6 @@ import { Link } from 'react-router-dom';
 
 const MovieItemBlock = styled.div`
 
-    display: flex;
-    
-    border : 1px solid gray;
-    border-radius: 4px;
-    margin-bottom : 2rem;
-
-    span {
-        margin-right: 8px;
-    }
 `;
 
 const MovieItem = ({ movie }) => {
@@ -48,8 +39,8 @@ const MovieItem = ({ movie }) => {
                     },
                 }}
             >
-                <h3>{title}</h3>
                 <img src={poster_url} alt={title} title={title} />
+                <h3>{title}</h3>
                 <p>{release_date}</p>
                 <p>{vote_average}</p>
                 {genre_ids.map(genre => (
