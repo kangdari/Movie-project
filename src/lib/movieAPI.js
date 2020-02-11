@@ -15,3 +15,13 @@ export const searchMovies = async (title) =>{
     return res;
 }
 
+
+
+// 영화 id로 검색 API
+export const searchMoviesId = async (id) =>{
+    let res = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=ko`);
+    return res;
+}
+
+
+

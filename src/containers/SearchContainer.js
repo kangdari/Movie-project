@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { searchMovies } from '../module/search';
+import { searchMoviesId } from '../module/search';
 import SearchForm from '../components/search/SearchForm';
 import SearchResult from '../components/search/SearchResult';
 import SearchTemplate from '../components/search/SearchTemplate';
@@ -26,6 +27,18 @@ const SearchContainer = () => {
         setInput(e.target.value);
     };
 
+    // 영화
+    const getMovieInfo = id=>{
+        dispatch(searchMoviesId(id))
+    }
+
+    //MovieListContainer.js
+    // 컴포넌트에서 id값을 가져와 상위 컴포넌트에 전달 하여 컨테이너 컴포넌트에서 id값으로 
+    // 스토어의 함수를 dispatch (searchMoviesID)
+    // onClick={() => {
+    //     onMovieID(value.id);
+    //   }}
+
     return (
         <SearchTemplate>
             <SearchForm
@@ -35,7 +48,8 @@ const SearchContainer = () => {
                 onChange={onChange}
                 onSubmit={onSubmit}
             />
-            <SearchResult data={data}/>
+            {/* 영화 자세한 정보를 가져오는 함수 전달 (id로 검색) */}
+            <SearchResult data={data} getMovieInfo={getMovieInfo}/>
         </SearchTemplate>
     );
     /* 결과 폼 */
