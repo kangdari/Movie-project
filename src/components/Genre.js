@@ -80,8 +80,8 @@ const genres_List = [
     },
 ];
 
-const Genre = ({ genre }) => {
-    const genreName = genres_List.find(element => element.id === genre).name;
+const Genre = ({ genre_id }) => {
+    const genreName = genres_List.find(element => element.id === genre_id).name;
 
     return <span>{genreName}</span>;
 };

@@ -1,43 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import * as movieAPI from '../../lib/movieAPI';
-import SearchResult from './SearchResult';
 
-const SearchFormBlock = styled.div``;
+const SearchFormBlock = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items; center;
+    width : 100%;
+    height: 5rem;
+    padding: 2rem;
 
-const SearchForm = () => {
-    const [result, setResult] = useState();
-    const [input, setInput] = useState('');
-
-    // const whiteSpace = (input) =>{
-    //     const text = input.replace(/\s/gi, ''); // 문자열 내 공백 제거
-    //     // \s 는 정규식에서 공백을 뜻 함
-    //     return text;
-    // }
-
-    const onSubmit = async e => {
-        e.preventDefault();
-        // const white_text = whiteSpace(input); // 공백 제거 
-        const res = await movieAPI.searchMovies(input);
-        setResult(res.data.results);
-        setInput('');
-    };
-
-    const onChange = async e => {
-        setInput(e.target.value);
-
-        // 입력과 동시에 검색
-        // const res = await movieAPI.searchMovies(input);
-        // setResult(res.data.results);
+    input{
+        // appearance: none;
+        border: none;
+        outline: none;
+        background: transparent;
+        border-bottom: 1px solid black;
+        padding-left: 0.7rem;
+        padding-bottom: 0.6rem;
+        width: 200px;
+        font-size: 1rem;
+        font-weight: 800;
     }
+`;
 
+const SearchForm = ({ data, error, onChange, input, onSubmit }) => {
     return (
         <SearchFormBlock>
             <form onSubmit={onSubmit}>
-                <input onChange={onChange} value={input} />
-                <button type="submit">검색</button>
+                <span>
+                    <input value={input} onChange={onChange} placeholder="영화명 검색..."/>
+                    {/* 검색어 미리 보기 기능 */}
+                    {/* { && input && data && <div>{data.map(movie=> {
+                        return <p>{movie.title}</p>
+                    })}</div>} */}
+                </span>
             </form>
-            <div>{!result ? 'null' : <SearchResult result={result}/>}</div>
         </SearchFormBlock>
     );
 };

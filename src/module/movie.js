@@ -14,14 +14,14 @@ export const getMovies = () => async dispatch => {
     dispatch({ type: GET_MOVIES }); // 요청 시작
     try {
         const res = await movieAPI.getMovies();
-        dispatch(startLoading(GET_MOVIES));
+        dispatch(startLoading(GET_MOVIES)); // 로딩 시작
         dispatch({
             type: GET_MOVIES_SUCCESS, // 요청 성공
             payload: res.data.results, // API 호출 결과 값
         });
         dispatch(finishLoading(GET_MOVIES));
     } catch (e) {
-        dispatch(startLoading(GET_MOVIES));
+        dispatch(startLoading(GET_MOVIES)); // 로딩 시작
         dispatch({
             type: GET_MOVIES_FAILURE, // 요청 실패
             payload: e,
