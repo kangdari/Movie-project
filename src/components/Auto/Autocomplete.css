@@ -1,41 +1,40 @@
 .AutoCompleteText{
-    width: 100%;
-    margin: 0 auto;
-    border: 1px solid grey;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 1), 0 2px 4px 1px rgba(0, 0, 0, .18);
+    width: 80%;
+    margin: 30px auto;
+    border-bottom: 1px solid grey;
+    /* box-shadow: 0 0 0 1px rgba(0, 0, 0, 1), 0 2px 4px 1px rgba(0, 0, 0, .18); */
     font-size: 14px;
     color : rgba(0, 0, 0, 0.73);
+    position: relative;
 }
-
 .AutoCompleteText input{
     width: 100%;
     border: none;
     font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: rgba(0, 0, 0, 0.73);
     padding: 10px 5px;
     box-sizing: border-box;
     outline: none;
+    font-weight: 800;
 }   
 
-.AutoCompleteText ul{
-    list-style-type: none;
-    text-align: left;
+.MovieList {
+    position: absolute;
+    width: 100%;
+    color: white;
+    background: #181614;
+    border-radius: 4px;
+    margin-top: 0.1rem;
+}
+
+.MovieList p{
     margin: 0;
-    padding: 0;
-    border-top: 1px solid gray;
-}
-
-.AutoCompleteText ul:before{
-    content: '';
-}
-
-.AutoCompleteText li{
     padding: 10px 5px;
     cursor: pointer;
 }
 
-.AutoCompleteText li:hover{
-    text-decoration: underline;
+.MovieList p:hover{
     background: rgba(128, 128, 128, 0.20);
+    font-weight: 800;
 }

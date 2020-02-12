@@ -23,13 +23,14 @@
 import React from 'react';
 import './App.css';
 import AutocompleteText from './components/Auto/AutocompleteText';
+import MovieDetailContainer from './containers/MovieDetailContainer';
 
 const App = () => {
     return (
         <div className="App">
             <div className="App-Component">
                 <AutocompleteText />
-                
+                <MovieDetailContainer/>
             </div>
         </div>
     );

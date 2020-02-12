@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import './Autocomplete.css';
 import * as movieApi from '../../lib/movieAPI';
 
@@ -15,16 +15,15 @@ const AutocompleteText = () => {
     const callAPI = async title => {
         const res = await movieApi.searchMovies(title);
         setData(res.data.results);
-        
     };
 
-    const onChange = e => {
+    const onChange = useCallback(e =>{
         const value = e.target.value;
-        if(value.length > 0){
+        if(value.length > 1){
             callAPI(value);
         }
-        setText(value);    
-    };
+        setText(value);
+    }, []) // 컴포넌트 첫 렌더링 시 생성
 
     const selectText = (value, id) =>{
         setText(value);
@@ -34,19 +33,23 @@ const AutocompleteText = () => {
     }
 
     const renderTitle = () =>{
+        if(!data){
+            console.log('null')
+            return null;
+        }
         return(
-            <ul>
+            <div className="MovieList">
                 {data.map(movie => (
-                    <li key={movie.id} tabIndex="0" onClick={()=>selectText(movie.title, movie.id)} >{movie.title}</li>
+                    <p key={movie.id} onClick={()=>selectText(movie.title, movie.id)} >{movie.title}</p>
                 ))}
-            </ul>
+            </div>
         )
     }
 
     return (
         <div className="AutoCompleteText">
                 <input value={text} onChange={onChange} type="text" />
-                {data && renderTitle()}
+                {renderTitle()}
         </div>
     );
 };
