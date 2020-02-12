@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './MovieDetail.css';
 import Genre from '../Genre';
 
@@ -7,7 +7,7 @@ const MovieDetail = ({ info }) => {
         title,
         tagline,
         release_date,
-        // backdrop_path,
+        backdrop_path,
         poster_path,
         genres, // id, name 객체 배열
         overview,
@@ -16,10 +16,17 @@ const MovieDetail = ({ info }) => {
         vote_average,
     } = info;
     const poster_url = `https://image.tmdb.org/t/p/w780/${poster_path}`;
-    // const back_url = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
+    const backDropUrl = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
     const no_image_url = `https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRogidlVrfx2Q_qKWJIZ43w4RbD4YCaf6lBXG5LjnyrxxZ8Q4xw`;
     // 정규표현식 문자열 3번째 마다 , 삽입
     let boxOffice = String(revenue).replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+
+    // 배경 이미지 변경
+    useEffect(()=>{
+        document.body.style.backgroundImage = `url('${backDropUrl}')`
+        document.body.style.backgroundRepeat = 'no-repeat';
+        document.body.style.backgroundSize = 'cover';
+    }, [backDropUrl])
 
     return (
         <div className="MovieContainer">
