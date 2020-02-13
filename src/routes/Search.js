@@ -1,13 +1,12 @@
 import React from 'react';
-import SearchContainer from '../containers/SearchContainer';
-import MovieInfoContainer from '../containers/MovieInfoContainer';
+import AutocompleteText from '../components/Auto/AutocompleteText';
+import MovieDetailContainer from '../containers/MovieDetailContainer';
 
-// 컴포넌트 화...
 const Search = () => {
     return (
         <>
-            <SearchContainer />
-            <MovieInfoContainer />
+            <AutocompleteText />
+            <MovieDetailContainer />
         </>
     );
 };

@@ -1,5 +1,5 @@
 import * as movieAPI from '../lib/movieAPI';
-import { handleActions } from 'redux-actions';
+import { createAction , handleActions } from 'redux-actions';
 
 const SEARCH_MOVIE = 'search/SEARCH_MOVIE';
 const SEARCH_MOVIE_SUCCESS = 'search/SEARCH_MOVIE_SUCCESS';
@@ -9,8 +9,10 @@ const SEARCH_MOVIEID = 'search/SEARCH_MOVIEID';
 const SEARCH_MOVIEID_SUCCESS = 'search/SEARCH_MOVIEID_SUCCESS';
 const SEARCH_MOVIEID_FAILURE = 'search/SEARCH_MOVIEID_FAILURE';
 
+// 검색 데이터 초기화
+const INITIAL_MOVIE_DATA = 'search/INITIAL_MOVIE_DATA';
+export const initialMovieData = createAction(INITIAL_MOVIE_DATA);
 
-// container onchange or onSubmit 함수에서 dispatch
 // thunk 함수
 export const searchMovies = title => async dispatch => {
     dispatch({ type: SEARCH_MOVIE });
@@ -75,6 +77,8 @@ const search = handleActions(
             ...state,
             error: action.payload,
         }),
+        // 나중에 사용 안하면 삭제
+        [INITIAL_MOVIE_DATA]: () => initialState,
     },
     initialState,
 );

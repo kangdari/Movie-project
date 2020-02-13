@@ -1,8 +1,8 @@
 import React from 'react';
-import MovieContainer from '../containers/MovieContainer';
+import AutocompleteText from '../components/Auto/AutocompleteText';
 
 const Home = () => {
-    return <MovieContainer />;
+    return <AutocompleteText />;
 };
 
 export default Home;
