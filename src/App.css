@@ -30,9 +30,10 @@
   box-sizing: border-box;
 }
 
-.App-Component{
-  width: 60%;
+.App-container{
+  width: 85%;
   display: flex;
+  align-items: center;
   flex-direction: column;
 }
 

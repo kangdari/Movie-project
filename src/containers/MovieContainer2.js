@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { getMovies } from '../module/movie';
 import { useSelector, useDispatch } from 'react-redux';
-import MovieList from '../components/MovieList';
+import Movie_List from '../components/Movie_List';
 
 const MovieContainer = () => {
     // movie 리덕스 상태 접근
@@ -20,7 +20,7 @@ const MovieContainer = () => {
     }, [dispatch]);
 
     // return <div>{!movies ? 'Loading...' : <MovieList movies={movies} loading={loading} error={error} />}</div>;
-    return <MovieList movies={movies} loading={loading} error={error} />
+    return <Movie_List movies={movies} loading={loading} error={error} />
 };
 
 export default MovieContainer;
