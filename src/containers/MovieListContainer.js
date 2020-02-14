@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { getMovieList } from '../module/movieList';
 import { searchMoviesId } from '../module/search';
 import { useSelector, useDispatch } from 'react-redux';
-import MovieList from '../components/MovieList';
+import MovieList from '../components/Movie/MovieList';
 // 컴포넌트
 
 const MovieListContainer = () => {
