@@ -1,5 +1,5 @@
 {
-  "name": "movie-api",
+  "name": "movie-project",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -43,6 +43,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.2.0"
+
   }
 }
