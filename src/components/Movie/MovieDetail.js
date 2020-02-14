@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './MovieDetail.css';
-import Genre from '../Genre';
+import Genre from '../Common/Genre';
 
 const MovieDetail = ({ info }) => {
     const {

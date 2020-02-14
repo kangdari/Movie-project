@@ -10,7 +10,7 @@ import Search from './routes/Search';
 const App = () => {
     return (
         <div className="App">
-            <div className="App-Component">
+            <div className="App-container">
                 {/* 홈 페이지 + 검색 기능 */}
                 <Route path='/' component={Search} exact/>
                 {/* 상영 영화, 개봉 예정 영화 리스트 페이지 */}

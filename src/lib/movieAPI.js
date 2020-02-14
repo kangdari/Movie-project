@@ -9,6 +9,11 @@ export const getMovies = async () =>{
     return res;
 }
 
+export const getUpComingMovies = async () =>{
+    let res = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=ko&page=1&region=KR`);
+    return res;
+}
+
 // 영화 title로 검색 API
 export const searchMovies = async (title) =>{
     // let res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${title}`);
@@ -23,5 +28,4 @@ export const searchMoviesId = async (id) =>{
     let res = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=ko`);
     return res;
 }
-
 

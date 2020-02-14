@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import movie from './movie';
+import movieList from './movieList';
 import loading from './loading';
 import search from './search';
 
 const rootReducer = combineReducers({
-    movie,
+    movieList,
     loading,
     search,
 })

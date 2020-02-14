@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from 'react';
-import './Autocomplete.css';
+import './Header.css';
 import * as movieApi from '../../lib/movieAPI';
 import { Link } from 'react-router-dom';
 import { searchMoviesId } from '../../module/search';
 import { useDispatch } from 'react-redux';
 
-const AutocompleteText = () => {
+const Header = () => {
     const dispatch = useDispatch();
     // 검색 결과
     const [data, setData] = useState([]);
@@ -51,15 +51,17 @@ const AutocompleteText = () => {
     };
 
     return (
-        <div className="AutoCompleteText">
+        <div className="Header">
             <div className="logoBox">
-                <img
-                    src="https://www.themoviedb.org/assets/2/v4/logos/powered-by-rectangle-green-dcada16968ed648d5eb3b36bbcfdd8cdf804f723dcca775c8f2bf4cea025aad6.svg"
-                    alt="img"
-                />
+                {/* <Link to="/"> */}
+                    <img
+                        src="https://www.themoviedb.org/assets/2/v4/logos/powered-by-rectangle-green-dcada16968ed648d5eb3b36bbcfdd8cdf804f723dcca775c8f2bf4cea025aad6.svg"
+                        alt="img"
+                    />
+                {/* </Link> */}
             </div>
             <div className="listBox">
-                <Link to="/movieList">movieList</Link>
+                <Link to="/movieList">상영 영화</Link>
             </div>
             <div className="searchBox">
                 <input
@@ -74,4 +76,4 @@ const AutocompleteText = () => {
     );
 };
 
-export default AutocompleteText;
+export default Header;
