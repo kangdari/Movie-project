@@ -60,9 +60,8 @@ const Header = () => {
                     />
                 {/* </Link> */}
             </div>
-
             <div className="listBox">
-                <Link to="/movieList">movieList</Link>
+                <Link to="/movieList">상영 영화</Link>
             </div>
             <div className="searchBox">
                 <input

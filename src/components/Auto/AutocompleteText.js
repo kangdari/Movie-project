@@ -11,12 +11,6 @@ const AutocompleteText = () => {
     const [data, setData] = useState([]);
     const [text, setText] = useState('');
 
-    // useEffect(()=>{
-    //     return ()=>{
-    //         dispatch(initialMovieData());
-    //     }
-    // })
-
     const callAPI = async title => {
         const res = await movieApi.searchMovies(title);
         setData(res.data.results);
@@ -59,14 +53,11 @@ const AutocompleteText = () => {
     return (
         <div className="AutoCompleteText">
             <div className="logoBox">
-                {/* <Link to="/"> */}
-                    <img
-                        src="https://www.themoviedb.org/assets/2/v4/logos/powered-by-rectangle-green-dcada16968ed648d5eb3b36bbcfdd8cdf804f723dcca775c8f2bf4cea025aad6.svg"
-                        alt="img"
-                    />
-                {/* </Link> */}
+                <img
+                    src="https://www.themoviedb.org/assets/2/v4/logos/powered-by-rectangle-green-dcada16968ed648d5eb3b36bbcfdd8cdf804f723dcca775c8f2bf4cea025aad6.svg"
+                    alt="img"
+                />
             </div>
-
             <div className="listBox">
                 <Link to="/movieList">movieList</Link>
             </div>

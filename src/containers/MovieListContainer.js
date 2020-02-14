@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { getMovieList } from '../module/movieList';
+import { searchMoviesId } from '../module/search';
 import { useSelector, useDispatch } from 'react-redux';
 import MovieList from '../components/MovieList';
 // 컴포넌트
@@ -17,7 +18,11 @@ const MovieListContainer = () => {
         dispatch(getMovieList());
     }, [dispatch]);
 
-    return <MovieList movieList={movieList} loading={loading} error={error} />;
+    const selectMovie = id =>{
+        dispatch(searchMoviesId(id));
+    }
+
+    return <MovieList movieList={movieList} loading={loading} error={error} selectMovie={selectMovie}/>;
 };
 
 export default MovieListContainer;
