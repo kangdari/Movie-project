@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/movie_project/static/css/main.9fb15e86.chunk.css",
+    "main.js": "/movie_project/static/js/main.d161e090.chunk.js",
+    "main.js.map": "/movie_project/static/js/main.d161e090.chunk.js.map",
+    "runtime-main.js": "/movie_project/static/js/runtime-main.2d98bbfd.js",
+    "runtime-main.js.map": "/movie_project/static/js/runtime-main.2d98bbfd.js.map",
+    "static/js/2.33267454.chunk.js": "/movie_project/static/js/2.33267454.chunk.js",
+    "static/js/2.33267454.chunk.js.map": "/movie_project/static/js/2.33267454.chunk.js.map",
+    "index.html": "/movie_project/index.html",
+    "precache-manifest.29c09fcbcbb3c1a6985ee50d44b90e3a.js": "/movie_project/precache-manifest.29c09fcbcbb3c1a6985ee50d44b90e3a.js",
+    "service-worker.js": "/movie_project/service-worker.js",
+    "static/css/main.9fb15e86.chunk.css.map": "/movie_project/static/css/main.9fb15e86.chunk.css.map",
+    "static/js/2.33267454.chunk.js.LICENSE.txt": "/movie_project/static/js/2.33267454.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/movie_project/static/media/Sriracha-Regular.0847227b.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2d98bbfd.js",
+    "static/js/2.33267454.chunk.js",
+    "static/css/main.9fb15e86.chunk.css",
+    "static/js/main.d161e090.chunk.js"
+  ]
+}
